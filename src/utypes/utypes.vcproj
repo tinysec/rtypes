@@ -147,10 +147,6 @@
 			Name="main"
 			>
 			<File
-				RelativePath=".\main.cpp"
-				>
-			</File>
-			<File
 				RelativePath="..\tests.cpp"
 				>
 			</File>

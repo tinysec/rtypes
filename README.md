@@ -1,16 +1,19 @@
-# rtypes
-Windows Reverse Helper.   
-Contains header files that can be compiled by both Visual Stduion , IDAPro , BinaryNinja to help reverse Windows.   
+# Reverse Types.
+This project include header files that contain undocuments types can be compiled by both WDK , IDAPro , BinaryNinja to help reverse Windows.   
 
 ## 1. Use for develop
 Just copy header files in the `include` directory.      
 
-## 2. Use for reverse
-`rtypes.pdb` produced by `rtypes.sys` or `rtypes.exe` can help reverse Windows.   
-Can be apply in two ways.
-1. Install `rtypes.sys` at target guest virtual machine and setup a kernel debugger at host machine to debug it.   
-2. Start windbg at host machine and debug `rtypes.exe` , it will auto break to the debugger.
+## 2. Use for IDAPro & Binary Ninja
+Just Parse header files in the `include` directory.
 
-Now you can use windbg to display any undocuments types.
+## 3. Use for online debugging.
+Install `ktypes.sys` at target guest virtual machine and setup a kernel debugger at host machine to debug it.   
 
+## 4. Use for offline debugging
+Start windbg at host machine and debug `utypes.exe` , it will auto break into the debugger.
+
+
+## 5. Finally
+Now you can use windbg to display any undocuments types or apply types to IDAPro & Binary Ninja .     
 Have a nice day!
