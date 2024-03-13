@@ -1,0 +1,6 @@
+#include <windows.h>
+#include <ntverp.h>
+#include "../version.rc"
+
+100    ICON  "res/main.ico"
+

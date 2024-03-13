@@ -1,0 +1,20 @@
+kind: pipeline
+type: exec
+name: windows
+platform:
+  os: windows
+  arch: amd64
+
+steps: 
+    - name: build
+      when:
+          branch:
+            include:
+              - master
+              - dev
+          event:
+            include:
+              - push
+      commands:
+        - cmd.exe /c ddkbuild.cmd -WIN7 checked src -c -Z
+        - cmd.exe /c ddkbuild.cmd -WIN7A64 checked src -c -Z

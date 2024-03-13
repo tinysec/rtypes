@@ -1,0 +1,11 @@
+!include ..\sources.inc
+
+TARGETNAME=ktypes
+
+TARGETTYPE=DRIVER
+
+C_DEFINES=$(C_DEFINES) /DBUILD_R0
+
+SOURCES=$(SOURCES) \
+	main.cpp \
+	new.cpp

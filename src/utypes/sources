@@ -1,0 +1,28 @@
+!include ..\sources.inc
+
+TARGETNAME=utypes
+
+TARGETTYPE=PROGRAM
+
+!IF "$(DRONE_BUILD_NUMBER)" == "" 
+TARGETPATH=../../build
+!ENDIF
+
+386_STDCALL = 0
+
+UMTYPE=console
+
+UMENTRY=main
+
+USE_MSVCRT=1
+
+C_DEFINES=$(C_DEFINES) /DBUILD_R3
+
+TARGETLIBS=$(TARGETLIBS) \
+	$(SDK_LIB_PATH)\ntdll.lib
+	
+	
+SOURCES=$(SOURCES) \
+	resource.rc \
+	main.cpp
+	
