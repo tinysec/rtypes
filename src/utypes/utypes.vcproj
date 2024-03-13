@@ -152,46 +152,6 @@
 			</File>
 		</Filter>
 		<Filter
-			Name="include"
-			>
-			<File
-				RelativePath="..\..\include\static_assert.h"
-				>
-			</File>
-			<Filter
-				Name="nt"
-				>
-				<File
-					RelativePath="..\..\include\nt\ETW_ENABLE_CALLBACK.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\nt\EtwRegister.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\nt\EtwWriteTransfer.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\nt\EVENT_DATA_DESCRIPTOR.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\nt\EVENT_DESCRIPTOR.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\nt\EVENT_FILTER_DESCRIPTOR.h"
-					>
-				</File>
-			</Filter>
-			<Filter
-				Name="win32kbase"
-				>
-			</Filter>
-		</Filter>
-		<Filter
 			Name="tests"
 			>
 			<File

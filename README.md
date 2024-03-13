@@ -15,12 +15,17 @@ Install `ktypes.sys` at target guest virtual machine and setup a kernel debugger
 ## 4. Use for offline debugging
 Start windbg at host machine and debug `utypes.exe` , it will auto break into the debugger.
 
+Now you can use windbg to display any undocuments types.
+![tagWND.png](doc/tagWND.png)
 
-## 5. Finally
-Now you can use windbg to display any undocuments types or apply types to IDAPro & Binary Ninja .     
-Have a nice day!
+## 6. Warning
+1.If there is no special instructions, the type definition is reverse-engineered on the latest official version of Windows 10 x64.   
+ 
+So When this types applied to other versions, some type definitions may need to be adjusted.
 
+2. Microsoft owns the full copyright of Windows.        
 
-## 6. Notes
-If there is no special instructions, the type definition is reverse-engineered on the latest official version of Windows 10 x64. 
-When applied to other versions, some type definitions may need to be adjusted.
+Reverse engineering of these structures is only for research and learning purposes.   
+      
+This project does not bear any legal responsibility and I am reserves the right of final interpretation.      
+   

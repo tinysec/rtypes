@@ -14,6 +14,7 @@
  
 #include <precompile.h>
 
+#include "win32kfull/tagWND.h"
 
 //////////////////////////////////////////////////////////////////////////
 
@@ -25,8 +26,14 @@ public:
 
 	static NTSTATUS Test()
 	{
+		test_tagWND();
 
 		return 0;
+	}
+
+	static void test_tagWND()
+	{
+		tagWND _dummy;
 	}
 };
  

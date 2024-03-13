@@ -19,6 +19,10 @@ extern "C"
  
 #include "_HEAD.h"
 
+#include "_W32THREAD.h"
+
+#include "tagObjLock.h"
+
 
 //////////////////////////////////////////////////////////////////////////
 
