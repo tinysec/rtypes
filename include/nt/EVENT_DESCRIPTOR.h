@@ -13,7 +13,6 @@
 extern "C"
     {
 #endif // #ifdef __cplusplus
-#include <PshPack1.h>
 //////////////////////////////////////////////////////////////////
  
  
@@ -35,7 +34,6 @@ typedef struct _EVENT_DESCRIPTOR {
 
  
 //////////////////////////////////////////////////////////////////
-#include <PopPack.h>
 #ifdef __cplusplus
 }
 #endif // #ifdef __cplusplus

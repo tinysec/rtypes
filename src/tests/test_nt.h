@@ -24,14 +24,14 @@ public:
 
 	static NTSTATUS Test()
 	{
-		hold_EVENT_DATA_DESCRIPTOR();
+		test_EVENT_DATA_DESCRIPTOR();
 
 		return 0;
 	}
 
 private:
 
-	static void hold_EVENT_DATA_DESCRIPTOR()
+	static void test_EVENT_DATA_DESCRIPTOR()
 	{
 		//EVENT_DATA_DESCRIPTOR _dummy;
 		

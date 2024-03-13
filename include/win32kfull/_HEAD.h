@@ -1,45 +1,36 @@
 /**
- * @file test_win32kfull.h
+ * @file _HEAD.h
  * @author tinysec
  * @brief
  * @version 0.0.1
     * 2024/03/13   init
  */
 
-#ifndef __MY_TEST_WIN32KFULL_HEADER_FILE__
-#define __MY_TEST_WIN32KFULL_HEADER_FILE__
+#ifndef __MY__HEAD_HEADER_FILE__
+#define __MY__HEAD_HEADER_FILE__
 //////////////////////////////////////////////////////////////////
 #ifdef __cplusplus
-//////////////////////////////////////////////////////////////////
- 
-#include <precompile.h>
-
-
-//////////////////////////////////////////////////////////////////////////
-
-
-
-class TestWin32kFull
-{
-public:
-
-	static NTSTATUS Test()
-	{
-
-		return 0;
-	}
-};
- 
- 
- 
- 
- 
- 
- 
- 
- 
-//////////////////////////////////////////////////////////////////
+extern "C"
+    {
 #endif // #ifdef __cplusplus
 //////////////////////////////////////////////////////////////////
-#endif //__MY_TEST_WIN32KFULL_HEADER_FILE__
+ 
+ 
+struct _HEAD
+{
+	HANDLE handle;
+	
+	UINT32 cLockObj;
+};
+
+
+ 
+//////////////////////////////////////////////////////////////////
+#ifdef __cplusplus
+}
+#endif // #ifdef __cplusplus
+//////////////////////////////////////////////////////////////////
+#endif //__MY__HEAD_HEADER_FILE__
+
+
 

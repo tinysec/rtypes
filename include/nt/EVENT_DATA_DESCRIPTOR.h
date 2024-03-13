@@ -13,7 +13,10 @@
 extern "C"
     {
 #endif // #ifdef __cplusplus
-#include <PshPack1.h>
+
+
+//////////////////////////////////////////////////////////////////
+
 
 
 #ifdef WDK_BUILD
@@ -40,8 +43,6 @@ typedef struct _EVENT_DATA_DESCRIPTOR {
 //////////////////////////////////////////////////////////////////
 #endif // #ifndef WDK_BUILD
 
-
-#include <PopPack.h>
 #ifdef __cplusplus
 }
 #endif // #ifdef __cplusplus

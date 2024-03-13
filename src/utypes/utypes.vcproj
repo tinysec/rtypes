@@ -186,6 +186,10 @@
 					>
 				</File>
 			</Filter>
+			<Filter
+				Name="win32kbase"
+				>
+			</Filter>
 		</Filter>
 		<Filter
 			Name="tests"

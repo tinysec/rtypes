@@ -1,45 +1,38 @@
 /**
- * @file test_win32kfull.h
+ * @file _THROBJHEAD.h
  * @author tinysec
  * @brief
  * @version 0.0.1
     * 2024/03/13   init
  */
 
-#ifndef __MY_TEST_WIN32KFULL_HEADER_FILE__
-#define __MY_TEST_WIN32KFULL_HEADER_FILE__
+#ifndef __MY__THROBJHEAD_HEADER_FILE__
+#define __MY__THROBJHEAD_HEADER_FILE__
 //////////////////////////////////////////////////////////////////
 #ifdef __cplusplus
+extern "C"
+    {
+#endif // #ifdef __cplusplus
 //////////////////////////////////////////////////////////////////
  
-#include <precompile.h>
-
+#include "_HEAD.h"
 
 //////////////////////////////////////////////////////////////////////////
-
-
-
-class TestWin32kFull
+ 
+struct _THROBJHEAD
 {
-public:
-
-	static NTSTATUS Test()
-	{
-
-		return 0;
-	}
+	struct _HEAD head;
+	
+	struct tagTHREADINFO* pti;
 };
  
  
  
- 
- 
- 
- 
- 
- 
 //////////////////////////////////////////////////////////////////
+#ifdef __cplusplus
+}
 #endif // #ifdef __cplusplus
 //////////////////////////////////////////////////////////////////
-#endif //__MY_TEST_WIN32KFULL_HEADER_FILE__
+#endif //__MY__THROBJHEAD_HEADER_FILE__
+
 

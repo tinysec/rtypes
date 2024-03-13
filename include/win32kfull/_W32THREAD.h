@@ -1,45 +1,37 @@
 /**
- * @file test_win32kfull.h
+ * @file _W32THREAD.h
  * @author tinysec
  * @brief
  * @version 0.0.1
     * 2024/03/13   init
  */
 
-#ifndef __MY_TEST_WIN32KFULL_HEADER_FILE__
-#define __MY_TEST_WIN32KFULL_HEADER_FILE__
+#ifndef __MY__W32THREAD_HEADER_FILE__
+#define __MY__W32THREAD_HEADER_FILE__
 //////////////////////////////////////////////////////////////////
 #ifdef __cplusplus
+extern "C"
+    {
+#endif // #ifdef __cplusplus
+#include <PshPack1.h>
 //////////////////////////////////////////////////////////////////
  
-#include <precompile.h>
+ 
+ 
 
-
-//////////////////////////////////////////////////////////////////////////
-
-
-
-class TestWin32kFull
+struct _W32THREAD
 {
-public:
-
-	static NTSTATUS Test()
-	{
-
-		return 0;
-	}
+	struct _ETHREAD* pEThread;
 };
- 
- 
- 
- 
- 
- 
- 
+
+
  
  
 //////////////////////////////////////////////////////////////////
+#include <PopPack.h>
+#ifdef __cplusplus
+}
 #endif // #ifdef __cplusplus
 //////////////////////////////////////////////////////////////////
-#endif //__MY_TEST_WIN32KFULL_HEADER_FILE__
+#endif //__MY__W32THREAD_HEADER_FILE__
 

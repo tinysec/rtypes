@@ -12,6 +12,13 @@
 #ifdef __cplusplus
 //////////////////////////////////////////////////////////////////
  
+
+#include <precompile.h>
+
+#include "win32kbase/DEVCAPS.h"
+
+//////////////////////////////////////////////////////////////////////////
+
  
 class TestWin32kBase
 {
@@ -19,8 +26,15 @@ public:
 
 	static NTSTATUS Test()
 	{
+		test_DEVCAPS();
 
 		return 0;
+	}
+
+
+	static void test_DEVCAPS()
+	{
+		DEVCAPS _dummy;
 	}
 };
  
