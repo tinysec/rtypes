@@ -1,5 +1,5 @@
 # Windows Reversed Types.
-A stupid but useful method to help reverse Windows. 
+A simple but useful project maybe help you reverse Windows. 
 
 This project include header files that contain undocuments types can be compiled by both WDK , IDAPro , BinaryNinja.   
 
