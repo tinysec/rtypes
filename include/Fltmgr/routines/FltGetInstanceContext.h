@@ -20,7 +20,7 @@ extern "C"
   
 NTSTATUS __stdcall FltGetInstanceContext (
      struct _FLT_INSTANCE * Instance,
-     struct _FLT_CONTEXT *Context
+     void** Context
 );
 
   

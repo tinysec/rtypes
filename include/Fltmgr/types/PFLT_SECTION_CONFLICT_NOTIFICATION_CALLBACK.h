@@ -22,7 +22,7 @@ extern "C"
 typedef NTSTATUS (__stdcall *PFLT_SECTION_CONFLICT_NOTIFICATION_CALLBACK)
 (
    struct _FLT_INSTANCE* Instance,
-  struct _FLT_CONTEXT* SectionContext,
+  void* SectionContext,
   struct _FLT_CALLBACK_DATA* Data
 );
  

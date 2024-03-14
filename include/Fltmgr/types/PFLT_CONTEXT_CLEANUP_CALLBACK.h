@@ -19,7 +19,7 @@ extern "C"
 typedef void (__stdcall *PFLT_CONTEXT_CLEANUP_CALLBACK) 
 ( 
 	 
-	 struct _FLT_CONTEXT* Context,  
+	 void* Context,  
 	 
 	 USHORT  ContextType
 	 

@@ -22,7 +22,7 @@ NTSTATUS __stdcall FltAllocateContext(
     USHORT ContextType,
     SIZE_T           ContextSize,
     POOL_TYPE        PoolType,
-   struct _FLT_CONTEXT** ReturnedContext
+   void** ReturnedContext
 );
   
   

@@ -25,7 +25,7 @@ extern "C"
 		typedef NTSTATUS
 			(__stdcall *PFLT_TRANSACTION_NOTIFICATION_CALLBACK) (
 			 struct _FLT_RELATED_OBJECTS * FltObjects,
-			 struct _FLT_CONTEXT* TransactionContext,
+			 void* TransactionContext,
 			 ULONG NotificationMask
 			);
  
