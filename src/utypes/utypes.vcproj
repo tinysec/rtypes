@@ -155,6 +155,10 @@
 			Name="tests"
 			>
 			<File
+				RelativePath="..\tests\test_fltmgr.h"
+				>
+			</File>
+			<File
 				RelativePath="..\tests\test_msrpc.h"
 				>
 			</File>

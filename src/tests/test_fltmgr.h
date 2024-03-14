@@ -1,52 +1,57 @@
 /**
- * @file test_win32kfull.h
+ * @file test_fltmgr.h
  * @author tinysec
  * @brief
  * @version 0.0.1
-    * 2024/03/13   init
+    * 2024/03/14   init
  */
-
-#ifndef __MY_TEST_WIN32KFULL_HEADER_FILE__
-#define __MY_TEST_WIN32KFULL_HEADER_FILE__
+#ifndef __MY_TEST_FLTMGR_HEADER_FILE__
+#define __MY_TEST_FLTMGR_HEADER_FILE__
 //////////////////////////////////////////////////////////////////
 #ifdef __cplusplus
 //////////////////////////////////////////////////////////////////
- 
+  
+  
+  
 #include <precompile.h>
 
-#include "win32kfull/types/tagWND.h"
+#include "fltmgr/types/_FLT_PARAMETERS.h"
+
 
 //////////////////////////////////////////////////////////////////////////
 
-
-
-class TestWin32kFull
+class TestFltMgr
 {
 public:
 
 	static NTSTATUS Test()
 	{
-		test_tagWND();
+		
+		test_FLT_PARAMETERS();
 
 		return 0;
 	}
 
-	static void test_tagWND()
+private:
+
+
+
+	static void test_FLT_PARAMETERS()
 	{
-		tagWND _dummy;
-	}
+		_FLT_PARAMETERS _dummy;
+	}	
 };
- 
- 
- 
- 
- 
- 
- 
- 
- 
+
+  
+  
+  
+  
+  
+  
+  
+  
 //////////////////////////////////////////////////////////////////
 #endif // #ifdef __cplusplus
 //////////////////////////////////////////////////////////////////
-#endif //__MY_TEST_WIN32KFULL_HEADER_FILE__
+#endif //__MY_TEST_FLTMGR_HEADER_FILE__
 
