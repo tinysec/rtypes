@@ -13,7 +13,7 @@ extern "C"
     {
 #endif // #ifdef __cplusplus
 
-#pragma pack(push,4)
+
 //////////////////////////////////////////////////////////////////
   
   
@@ -272,6 +272,12 @@ union _FLT_PARAMETERS
 
         struct {
             ULONG OutputBufferLength;
+
+#ifdef _WIN64
+			ULONG	_dummy1;
+#endif
+
+
             ULONG  InputBufferLength;
             ULONG  FsControlCode;
         } Common;
@@ -282,7 +288,14 @@ union _FLT_PARAMETERS
 
         struct {
             ULONG OutputBufferLength;
+
+#ifdef _WIN64
+			ULONG	_dummy1;
+#endif
+
             ULONG  InputBufferLength;
+
+
             ULONG  FsControlCode;
 
             //
@@ -294,6 +307,7 @@ union _FLT_PARAMETERS
             //
 
             PVOID InputBuffer;
+
             PVOID OutputBuffer;
 
             //
@@ -309,6 +323,11 @@ union _FLT_PARAMETERS
 
         struct {
             ULONG OutputBufferLength;
+
+#ifdef _WIN64
+			ULONG	_dummy1;
+#endif
+
             ULONG  InputBufferLength;
             ULONG  FsControlCode;
 
@@ -327,7 +346,17 @@ union _FLT_PARAMETERS
 
         struct {
             ULONG OutputBufferLength;
+
+#ifdef _WIN64
+		ULONG	_dummy1;
+#endif
+		
+			// align to pointer
             ULONG  InputBufferLength;
+
+
+
+
             ULONG  FsControlCode;
 
             //
@@ -782,7 +811,7 @@ union _FLT_PARAMETERS
   
   
 //////////////////////////////////////////////////////////////////
-#pragma pack(pop)
+//#pragma pack(pop)
 
 #ifdef __cplusplus
 }
