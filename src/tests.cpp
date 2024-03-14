@@ -14,6 +14,8 @@
 
 #include "tests/test_win32kfull.h"
 
+#include "tests/test_fltmgr.h"
+
 #include "tests/test_msrpc.h"
 
 
@@ -43,6 +45,13 @@ NTSTATUS TestMain()
 		}
 
 		status = TestWin32kFull::Test();
+		if ( !NT_SUCCESS(status) )
+		{
+			final_status = status;
+			break;
+		}
+
+		status = TestFltMgr::Test();
 		if ( !NT_SUCCESS(status) )
 		{
 			final_status = status;

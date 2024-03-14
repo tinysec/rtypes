@@ -31,7 +31,7 @@ union _FLT_PARAMETERS
     //
 
     struct {
-        PIO_SECURITY_CONTEXT SecurityContext;
+        struct _IO_SECURITY_CONTEXT* SecurityContext;
 
         //
         //  The low 24 bits contains CreateOptions flag values.
@@ -60,7 +60,7 @@ union _FLT_PARAMETERS
     //
 
     struct {
-        PIO_SECURITY_CONTEXT SecurityContext;
+        struct _IO_SECURITY_CONTEXT* SecurityContext;
 
         ULONG Options;
 
@@ -82,7 +82,7 @@ union _FLT_PARAMETERS
 
     struct 
 	{
-        PIO_SECURITY_CONTEXT SecurityContext;
+        struct _IO_SECURITY_CONTEXT* SecurityContext;
 
         ULONG Options;
 
@@ -106,7 +106,8 @@ union _FLT_PARAMETERS
         LARGE_INTEGER ByteOffset;       //Offset to read from
 
         PVOID ReadBuffer;       //Not in IO_STACK_LOCATION parameters list
-        PMDL MdlAddress;        //Mdl address for the buffer  (maybe NULL)
+
+        struct _MDL* MdlAddress;        //Mdl address for the buffer  (maybe NULL)
     } Read;
 
     //
@@ -120,7 +121,7 @@ union _FLT_PARAMETERS
         LARGE_INTEGER ByteOffset;       //Offset to write to
 
         PVOID WriteBuffer;      //Not in IO_STACK_LOCATION parameters list
-        PMDL MdlAddress;        //Mdl address for the buffer  (maybe NULL)
+        struct _MDL* MdlAddress;        //Mdl address for the buffer  (maybe NULL)
     } Write;
 
     //
@@ -129,7 +130,8 @@ union _FLT_PARAMETERS
 
     struct {
         ULONG Length;           //Length of buffer
-        FILE_INFORMATION_CLASS  FileInformationClass; //Class of information to query
+
+        ULONG  FileInformationClass; //Class of information to query
 
         PVOID InfoBuffer;       //Not in IO_STACK_LOCATION parameters list
     } QueryFileInformation;
@@ -140,8 +142,10 @@ union _FLT_PARAMETERS
 
     struct {
         ULONG Length;
-        FILE_INFORMATION_CLASS  FileInformationClass;
-        PFILE_OBJECT ParentOfTarget;
+        ULONG  FileInformationClass;
+
+        struct _FILE_OBJECT*  ParentOfTarget;
+
         union {
             struct {
                 BOOLEAN ReplaceIfExists;
@@ -165,7 +169,7 @@ union _FLT_PARAMETERS
         ULONG  EaIndex;
 
         PVOID EaBuffer;         //Not in IO_STACK_LOCATION parameters list
-        PMDL MdlAddress;        //Mdl address for the buffer  (maybe NULL)
+        struct _MDL* MdlAddress;        //Mdl address for the buffer  (maybe NULL)
     } QueryEa;
 
     //
@@ -176,7 +180,7 @@ union _FLT_PARAMETERS
         ULONG Length;
 
         PVOID EaBuffer;         //Not in IO_STACK_LOCATION parameters list
-        PMDL MdlAddress;        //Mdl address for the buffer  (maybe NULL)
+        struct _MDL* MdlAddress;        //Mdl address for the buffer  (maybe NULL)
     } SetEa;
 
     //
@@ -185,7 +189,7 @@ union _FLT_PARAMETERS
 
     struct {
         ULONG Length;
-        FS_INFORMATION_CLASS  FsInformationClass;
+        ULONG  FsInformationClass;
 
         PVOID VolumeBuffer;     //Not in IO_STACK_LOCATION parameters list
     } QueryVolumeInformation;
@@ -196,7 +200,7 @@ union _FLT_PARAMETERS
 
     struct {
         ULONG Length;
-        FS_INFORMATION_CLASS  FsInformationClass;
+        ULONG  FsInformationClass;
 
         PVOID VolumeBuffer;     //Not in IO_STACK_LOCATION parameters list
     } SetVolumeInformation;
@@ -213,12 +217,12 @@ union _FLT_PARAMETERS
 
         struct {
             ULONG Length;
-            PUNICODE_STRING FileName;
-            FILE_INFORMATION_CLASS FileInformationClass;
+            struct _UNICODE_STRING* FileName;
+            ULONG FileInformationClass;
             ULONG  FileIndex;
 
             PVOID DirectoryBuffer;  //Not in IO_STACK_LOCATION parameters list
-            PMDL MdlAddress;        //Mdl address for the buffer  (maybe NULL)
+            struct _MDL* MdlAddress;        //Mdl address for the buffer  (maybe NULL)
         } QueryDirectory;
 
         //
@@ -240,7 +244,7 @@ union _FLT_PARAMETERS
             ULONG  Spare2;
 
             PVOID DirectoryBuffer;  //Not in IO_STACK_LOCATION parameters list
-            PMDL MdlAddress;        //Mdl address for the buffer  (maybe NULL)
+            struct _MDL* MdlAddress;        //Mdl address for the buffer  (maybe NULL)
         } NotifyDirectory;
 
     } DirectoryControl;
@@ -314,7 +318,7 @@ union _FLT_PARAMETERS
             //  Mdl address for the output buffer  (maybe NULL)
             //
 
-            PMDL OutputMdlAddress;
+            struct _MDL* OutputMdlAddress;
         } Neither;
 
         //
@@ -382,7 +386,7 @@ union _FLT_PARAMETERS
             //  non-NULL)
             //
 
-            PMDL OutputMdlAddress;
+            struct _MDL* OutputMdlAddress;
         } Direct;
 
     } FileSystemControl;
@@ -429,7 +433,7 @@ union _FLT_PARAMETERS
             //  Mdl address for the output buffer  (maybe NULL)
             //
 
-            PMDL OutputMdlAddress;
+            struct _MDL* OutputMdlAddress;
         } Neither;
 
         //
@@ -481,7 +485,7 @@ union _FLT_PARAMETERS
             //  Mdl address for the locked down output buffer (should be non-NULL)
             //
 
-            PMDL OutputMdlAddress;
+            struct _MDL* OutputMdlAddress;
         } Direct;
 
         //
@@ -514,7 +518,7 @@ union _FLT_PARAMETERS
         ULONG  Key;
         LARGE_INTEGER ByteOffset;
 
-        PEPROCESS ProcessId;        //  Only meaningful for FastIo locking operations.
+         struct _EPROCESS* ProcessId;        //  Only meaningful for FastIo locking operations.
         BOOLEAN FailImmediately;    //  Only meaningful for FastIo locking operations.
         BOOLEAN ExclusiveLock;      //  Only meaningful for FastIo locking operations.
     } LockControl;
@@ -528,7 +532,7 @@ union _FLT_PARAMETERS
         ULONG  Length;
 
         PVOID SecurityBuffer;   //Not in IO_STACK_LOCATION parameters list
-        PMDL MdlAddress;        //Mdl address for the buffer  (maybe NULL)
+        struct _MDL* MdlAddress;        //Mdl address for the buffer  (maybe NULL)
     } QuerySecurity;
 
     //
@@ -562,7 +566,7 @@ union _FLT_PARAMETERS
         ULONG SidListLength;
 
         PVOID QuotaBuffer;      //Not in IO_STACK_LOCATION parameters list
-        PMDL MdlAddress;        //Mdl address for the buffer  (maybe NULL)
+        struct _MDL* MdlAddress;        //Mdl address for the buffer  (maybe NULL)
     } QueryQuota;
 
     //
@@ -573,7 +577,7 @@ union _FLT_PARAMETERS
         ULONG Length;
 
         PVOID QuotaBuffer;      //Not in IO_STACK_LOCATION parameters list
-        PMDL MdlAddress;        //Mdl address for the buffer  (maybe NULL)
+        struct _MDL* MdlAddress;        //Mdl address for the buffer  (maybe NULL)
     } SetQuota;
 
     //
@@ -587,8 +591,8 @@ union _FLT_PARAMETERS
         //
 
         struct {
-            PCM_RESOURCE_LIST AllocatedResources;
-            PCM_RESOURCE_LIST AllocatedResourcesTranslated;
+            struct _CM_RESOURCE_LIST* AllocatedResources;
+            struct _CM_RESOURCE_LIST* AllocatedResourcesTranslated;
         } StartDevice;
 
         //
@@ -596,7 +600,7 @@ union _FLT_PARAMETERS
         //
 
         struct {
-            DEVICE_RELATION_TYPE Type;
+            ULONG Type;
         } QueryDeviceRelations;
 
         //
@@ -607,7 +611,7 @@ union _FLT_PARAMETERS
             GUID *InterfaceType;
             USHORT Size;
             USHORT Version;
-            PINTERFACE Interface;
+            struct _INTERFACE* Interface;
             PVOID InterfaceSpecificData;
         } QueryInterface;
 
@@ -616,7 +620,7 @@ union _FLT_PARAMETERS
         //
 
         struct {
-            PDEVICE_CAPABILITIES Capabilities;
+            struct _DEVICE_CAPABILITIES* Capabilities;
         } DeviceCapabilities;
 
         //
@@ -624,7 +628,7 @@ union _FLT_PARAMETERS
         //
 
         struct {
-            PIO_RESOURCE_REQUIREMENTS_LIST IoResourceRequirementList;
+            struct _IO_RESOURCE_REQUIREMENTS_LIST* IoResourceRequirementList;
         } FilterResourceRequirements;
 
         //
@@ -651,7 +655,7 @@ union _FLT_PARAMETERS
         //
 
         struct {
-            BUS_QUERY_ID_TYPE IdType;
+            ULONG IdType;
         } QueryId;
 
         //
@@ -659,7 +663,7 @@ union _FLT_PARAMETERS
         //
 
         struct {
-            DEVICE_TEXT_TYPE DeviceTextType;
+            ULONG DeviceTextType;
             LCID  LocaleId;
         } QueryDeviceText;
 
@@ -670,7 +674,7 @@ union _FLT_PARAMETERS
         struct {
             BOOLEAN InPath;
             BOOLEAN Reserved[3];
-            DEVICE_USAGE_NOTIFICATION_TYPE  Type;
+            ULONG  Type;
         } UsageNotification;
 
     } Pnp;
@@ -720,7 +724,7 @@ union _FLT_PARAMETERS
 
 
 	struct {
-		PIRP                   Irp;
+		struct _IRP*                   Irp;
 
 		union
 		{
@@ -730,7 +734,7 @@ union _FLT_PARAMETERS
 		
 
 		PULONG                 Length;
-		FILE_INFORMATION_CLASS FileInformationClass;
+		ULONG FileInformationClass;
 	} QueryOpen;
 
 
@@ -739,8 +743,8 @@ union _FLT_PARAMETERS
     //
 
     struct {
-        PIRP Irp;
-        PFILE_NETWORK_OPEN_INFORMATION NetworkInformation;
+        struct _IRP* Irp;
+        struct _FILE_NETWORK_OPEN_INFORMATION* NetworkInformation;
     } NetworkQueryOpen;
 
     //
@@ -751,7 +755,7 @@ union _FLT_PARAMETERS
         LARGE_INTEGER FileOffset;
         ULONG  Length;
         ULONG  Key;
-        PMDL *MdlChain;
+        struct _MDL** MdlChain;
     } MdlRead;
 
     //
@@ -759,7 +763,7 @@ union _FLT_PARAMETERS
     //
 
     struct {
-        PMDL MdlChain;
+        struct _MDL* MdlChain;
     } MdlReadComplete;
 
     //
@@ -770,7 +774,7 @@ union _FLT_PARAMETERS
         LARGE_INTEGER FileOffset;
         ULONG  Length;
         ULONG  Key;
-        PMDL *MdlChain;
+        struct _MDL** MdlChain;
     } PrepareMdlWrite;
 
     //
@@ -779,7 +783,7 @@ union _FLT_PARAMETERS
 
     struct {
         LARGE_INTEGER FileOffset;
-        PMDL MdlChain;
+        struct _MDL* MdlChain;
     } MdlWriteComplete;
 
     //
