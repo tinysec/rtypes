@@ -14,7 +14,11 @@
  
 #include <precompile.h>
 
-#include "nt/EVENT_DATA_DESCRIPTOR.h"
+#include "nt/etw/EVENT_DATA_DESCRIPTOR.h"
+
+#include "nt/wpp/_WPP_TRACE_CONTROL_BLOCK.h"
+
+#include "nt/wpp/WPP_PROJECT_CONTROL_BLOCK.h"
 
 //////////////////////////////////////////////////////////////////////////
  
@@ -37,6 +41,11 @@ private:
 		
 		STATIC_ASSERT( sizeof(EVENT_DATA_DESCRIPTOR) == 16 );
 	}
+
+	static void test_WPP_PROJECT_CONTROL_BLOCK()
+	{
+		WPP_PROJECT_CONTROL_BLOCK _dummy;
+	}	
 };
 
  
