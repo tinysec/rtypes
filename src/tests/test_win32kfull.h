@@ -14,7 +14,7 @@
  
 #include <precompile.h>
 
-#include "win32kfull/tagWND.h"
+#include "win32kfull/types/tagWND.h"
 
 //////////////////////////////////////////////////////////////////////////
 
