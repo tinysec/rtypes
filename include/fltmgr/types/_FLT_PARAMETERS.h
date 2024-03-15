@@ -275,15 +275,28 @@ union _FLT_PARAMETERS
         //
 
         struct {
+
+			// offset = 0x00
             ULONG OutputBufferLength;
 
-#ifdef _WIN64
-			ULONG	_dummy1;
-#endif
+			#ifdef _WIN64
+				ULONG	_dummy1;
+			#endif
 
-
+			// offset = 0x08
             ULONG  InputBufferLength;
+
+			#ifdef _WIN64
+				ULONG	_dummy2;
+			#endif
+
+			// offset = 0x10
             ULONG  FsControlCode;
+
+			#ifdef _WIN64
+				ULONG	_dummy3;
+			#endif
+
         } Common;
 
         //
@@ -291,16 +304,29 @@ union _FLT_PARAMETERS
         //
 
         struct {
+
+			// offset =0x00
             ULONG OutputBufferLength;
 
-#ifdef _WIN64
-			ULONG	_dummy1;
-#endif
-
+			#ifdef _WIN64
+				ULONG	_dummy1;
+			#endif
+			
+			// offset = 0x08
             ULONG  InputBufferLength;
 
+			#ifdef _WIN64
+				ULONG	_dummy2;
+			#endif
 
+			
+			// offset = 0x10
             ULONG  FsControlCode;
+
+			#ifdef _WIN64
+				ULONG	_dummy3;
+			#endif
+
 
             //
             //  Type3InputBuffer: name changed from IO_STACK_LOCATION parameters
@@ -310,14 +336,17 @@ union _FLT_PARAMETERS
             //  access to the buffer)
             //
 
+			// offset = 0x18
             PVOID InputBuffer;
 
+			// offset = 0x20
             PVOID OutputBuffer;
 
             //
             //  Mdl address for the output buffer  (maybe NULL)
             //
 
+			// offset = 0x28
             struct _MDL* OutputMdlAddress;
         } Neither;
 
@@ -326,20 +355,33 @@ union _FLT_PARAMETERS
         //
 
         struct {
+
+			// offset = 0x00
             ULONG OutputBufferLength;
 
-#ifdef _WIN64
-			ULONG	_dummy1;
-#endif
+			#ifdef _WIN64
+				ULONG	_dummy1;
+			#endif
 
             ULONG  InputBufferLength;
+
+			#ifdef _WIN64
+				ULONG	_dummy2;
+			#endif
+
+
+			// offset = 0x10
             ULONG  FsControlCode;
+
+			#ifdef _WIN64
+				ULONG	_dummy3;
+			#endif
 
             //
             //  For method buffered, this buffer is used both for input and
             //  output
             //
-
+			// offset = 0x18
             PVOID SystemBuffer;
 
         } Buffered;
@@ -349,19 +391,27 @@ union _FLT_PARAMETERS
         //
 
         struct {
+
+			// offset = 0x00
             ULONG OutputBufferLength;
 
-#ifdef _WIN64
-		ULONG	_dummy1;
-#endif
+			#ifdef _WIN64
+				ULONG	_dummy1;
+			#endif
 		
-			// align to pointer
+			// offset = 0x08
             ULONG  InputBufferLength;
+			
+			#ifdef _WIN64
+				ULONG	_dummy2;
+			#endif
 
-
-
-
+			// offset = 0x10
             ULONG  FsControlCode;
+
+			#ifdef _WIN64
+				ULONG	_dummy3;
+			#endif
 
             //
             //  Note the input buffer is already captured & buffered here - so
@@ -373,12 +423,14 @@ union _FLT_PARAMETERS
             //  from the MDL
             //
 
+			// offset = 0x18
             PVOID InputSystemBuffer;
 
             //
             //  User virtual address of output buffer
             //
 
+			// offset = 0x20
             PVOID OutputBuffer;
 
             //
@@ -398,9 +450,24 @@ union _FLT_PARAMETERS
     union {
 
         struct {
+
             ULONG OutputBufferLength;
+
+
+			#ifdef _WIN64
+					ULONG	_dummy1;
+			#endif
+
+
             ULONG  InputBufferLength;
+
+
+			#ifdef _WIN64
+					ULONG	_dummy2;
+			#endif
+
             ULONG  IoControlCode;
+
         } Common;
 
         //
@@ -415,9 +482,25 @@ union _FLT_PARAMETERS
 
         struct {
             ULONG OutputBufferLength;
+
+			#ifdef _WIN64
+				ULONG	_dummy1;
+			#endif
+
+
             ULONG  InputBufferLength;
+
+			#ifdef _WIN64
+				ULONG	_dummy2;
+			#endif
+
+
             ULONG  IoControlCode;
 
+
+			#ifdef _WIN64
+				ULONG	_dummy3;
+			#endif
             //
             //  Type3InputBuffer: name changed from IO_STACK_LOCATION parameters
             //  Note for this mothod, both input & output buffers are 'raw',
@@ -427,6 +510,7 @@ union _FLT_PARAMETERS
             //
 
             PVOID InputBuffer;
+
             PVOID OutputBuffer;
 
             //
@@ -441,9 +525,28 @@ union _FLT_PARAMETERS
         //
 
         struct {
+
+
             ULONG OutputBufferLength;
+
+			#ifdef _WIN64
+					ULONG	_dummy1;
+			#endif
+
+
             ULONG  InputBufferLength;
+
+
+			#ifdef _WIN64
+						ULONG	_dummy2;
+			#endif
+
             ULONG  IoControlCode;
+
+
+			#ifdef _WIN64
+				ULONG	_dummy3;
+			#endif
 
             //
             //  For method buffered, this buffer is used both for input and
@@ -460,8 +563,26 @@ union _FLT_PARAMETERS
 
         struct {
             ULONG OutputBufferLength;
+
+			#ifdef _WIN64
+				ULONG	_dummy1;
+			#endif
+
+
             ULONG  InputBufferLength;
+
+
+			#ifdef _WIN64
+				ULONG	_dummy2;
+			#endif
+
+
             ULONG  IoControlCode;
+
+
+			#ifdef _WIN64
+				ULONG	_dummy3;
+			#endif
 
             //
             //  Note the input buffer is already captured & buffered here - so
@@ -495,8 +616,25 @@ union _FLT_PARAMETERS
 
         struct {
             ULONG OutputBufferLength;
+
+
+			#ifdef _WIN64
+					ULONG	_dummy1;
+			#endif
+
             ULONG  InputBufferLength;
+
+			#ifdef _WIN64
+						ULONG	_dummy2;
+			#endif
+
+
             ULONG  IoControlCode;
+
+
+			#ifdef _WIN64
+					ULONG	_dummy3;
+			#endif
 
             //
             //  Both buffers are 'raw', i.e. unbuffered
