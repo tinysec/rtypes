@@ -14,11 +14,11 @@
  
 #include <precompile.h>
 
-#include "nt/etw/EVENT_DATA_DESCRIPTOR.h"
+#include "nt/etw/types/EVENT_DATA_DESCRIPTOR.h"
 
-#include "nt/wpp/_WPP_TRACE_CONTROL_BLOCK.h"
+#include "nt/wpp/types/_WPP_TRACE_CONTROL_BLOCK.h"
 
-#include "nt/wpp/WPP_PROJECT_CONTROL_BLOCK.h"
+#include "nt/wpp/types/WPP_PROJECT_CONTROL_BLOCK.h"
 
 //////////////////////////////////////////////////////////////////////////
  

@@ -15,7 +15,7 @@
 
 #include <precompile.h>
 
-#include "win32kbase/DEVCAPS.h"
+#include "win32kbase/types/DEVCAPS.h"
 
 //////////////////////////////////////////////////////////////////////////
 
