@@ -84,13 +84,14 @@ class Application(object):
 
         if 0 == offset:
             full = True
-            print("struct udt_size_{0:#0{1}x}_t".format(self.settings.size, 5))
+            print("// size = {0:#0{1}x}".format( self.settings.size, 5 ) )
+            print("struct _UNKNOWN_STRUCT_WITH_SIZE_{0:#0{1}x}".format(self.settings.size, 5))
             print("{")
             prefix = '\t'
 
         while offset < self.settings.size:
 
-            comment = "// offset = {0:#0{1}x};".format(offset, 5)
+            comment = "// offset = {0:#0{1}x}".format(offset, 5)
 
             if 1 == self.settings.align:
                 line = "UINT8 offset_{0:#0{1}x};".format(offset, 5)
