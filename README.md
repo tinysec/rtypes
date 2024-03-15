@@ -19,7 +19,7 @@ Now you can use windbg to display any undocuments types.
 ![tagWND.png](doc/tagWND.png)
 
 ## 5. Warning
-1. If there is no special instructions, the type definition is reverse-engineered on the latest official version of Windows 10 x64.   
+1. If there is no special instructions, the type definition is reverse-engineered on the latest stable version of Windows 10 x64 & Windows 11 x64.   
  
 2. When this types applied to other versions, some type definitions may need to be adjusted.
 

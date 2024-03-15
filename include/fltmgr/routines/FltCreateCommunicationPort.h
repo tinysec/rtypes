@@ -15,11 +15,11 @@ extern "C"
 #endif // #ifdef __cplusplus
 //////////////////////////////////////////////////////////////////
  
-#include "PFLT_CONNECT_NOTIFY.h"
+#include "../types/PFLT_CONNECT_NOTIFY.h"
 
-#include "PFLT_DISCONNECT_NOTIFY.h"
+#include "../types/PFLT_DISCONNECT_NOTIFY.h"
 
-#include "PFLT_MESSAGE_NOTIFY.h"
+#include "../types/PFLT_MESSAGE_NOTIFY.h"
 
 
 //////////////////////////////////////////////////////////////////////////
@@ -31,7 +31,7 @@ NTSTATUS __stdcall FltCreateCommunicationPort
 
 	struct _FLT_PORT**	   ServerPort,
 
-	OBJECT_ATTRIBUTES*     ObjectAttributes,
+	struct _OBJECT_ATTRIBUTES*     ObjectAttributes,
 
 	PVOID                  ServerPortCookie,
 
