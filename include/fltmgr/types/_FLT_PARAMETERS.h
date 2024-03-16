@@ -61,6 +61,10 @@ union _FLT_PARAMETERS
 		// offset=0x18
         ULONG  EaLength;
 
+		#ifdef _WIN64
+			ULONG	_dummy3;
+		#endif	
+
 		// offset=0x20
         PVOID EaBuffer;                 //Not in IO_STACK_LOCATION parameters list
 
@@ -151,6 +155,10 @@ union _FLT_PARAMETERS
 
 		// offset=0x08
         ULONG  Key;
+
+#ifdef _WIN64
+		ULONG	_dummy2;
+#endif	
 
 		// offset=0x10
         LARGE_INTEGER ByteOffset;       //Offset to read from
@@ -1248,8 +1256,11 @@ union _FLT_PARAMETERS
 
 
 	struct {
+
+		// offset = 0x00
 		struct _IRP*                   Irp;
 
+		// offset = 0x08
 		union
 		{
 			struct _FILE_STAT_INFORMATION* FileStat;
@@ -1257,9 +1268,10 @@ union _FLT_PARAMETERS
 			PVOID                  FileInformation;
 		};
 		
-
+		// offset = 0x10
 		PULONG                 Length;
 
+		// offset = 0x18
 		ULONG			FileInformationClass;
 
 	} QueryOpen;
