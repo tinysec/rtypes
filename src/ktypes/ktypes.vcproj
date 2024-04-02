@@ -147,27 +147,7 @@
 			Name="main"
 			>
 			<File
-				RelativePath="..\tests.cpp"
-				>
-			</File>
-		</Filter>
-		<Filter
-			Name="tests"
-			>
-			<File
-				RelativePath="..\tests\test_msrpc.h"
-				>
-			</File>
-			<File
-				RelativePath="..\tests\test_nt.h"
-				>
-			</File>
-			<File
-				RelativePath="..\tests\test_win32kbase.h"
-				>
-			</File>
-			<File
-				RelativePath="..\tests\test_win32kfull.h"
+				RelativePath=".\main.cpp"
 				>
 			</File>
 		</Filter>
