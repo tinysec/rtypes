@@ -8,19 +8,13 @@
 
 #include <precompile.h>
 
-#include "tests.h"
+#include "win32k/6.1.7601.23584/types/tagQ.h"
 
 //////////////////////////////////////////////////////////////////////////
 
 EXTERN_C int __cdecl main( __in int argc , __in char** argv)
 {
-	NTSTATUS status = STATUS_UNSUCCESSFUL;
-
-	status = TestMain();
-	if ( !NT_SUCCESS(status) )
-	{
-		return -1;
-	}
+	tagQ _dummy;
 
 	// break into debugger.
 	__debugbreak();

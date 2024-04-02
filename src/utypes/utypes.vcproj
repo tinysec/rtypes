@@ -50,7 +50,7 @@
 				BuildCommandLine=""
 				ReBuildCommandLine="ddkbuild.cmd -WIN7A64 checked . -c -g -Z"
 				CleanCommandLine=""
-				Output="..\..\build\amd64\utypes.exe"
+				Output="build\amd64\utypes.exe"
 				PreprocessorDefinitions="WIN32;_DEBUG"
 				IncludeSearchPath=""
 				ForcedIncludes=""
@@ -147,31 +147,11 @@
 			Name="main"
 			>
 			<File
-				RelativePath="..\tests.cpp"
-				>
-			</File>
-		</Filter>
-		<Filter
-			Name="tests"
-			>
-			<File
-				RelativePath="..\tests\test_fltmgr.h"
+				RelativePath=".\main.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\tests\test_msrpc.h"
-				>
-			</File>
-			<File
-				RelativePath="..\tests\test_nt.h"
-				>
-			</File>
-			<File
-				RelativePath="..\tests\test_win32kbase.h"
-				>
-			</File>
-			<File
-				RelativePath="..\tests\test_win32kfull.h"
+				RelativePath=".\sources"
 				>
 			</File>
 		</Filter>
